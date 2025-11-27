@@ -1,16 +1,28 @@
 {
-  "name": "shadcn-admin",
+  "name": "super-boilerplate",
   "private": false,
   "version": "1.4.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --mode development",
+    "staging": "vite --mode staging",
+    "prod": "vite --mode production",
     "build": "tsc -b && vite build",
+    "build:staging": "tsc -b && vite build --mode staging",
+    "build:prod": "tsc -b && vite build --mode production",
+    "build:check": "tsc -b && vite build --mode production --check",
     "lint": "eslint .",
+    "lint:fix": "eslint . -w-fix",
     "preview": "vite preview",
     "format:check": "prettier --check .",
     "format": "prettier --write .",
-    "knip": "knip"
+    "format:fix": "prettier --write .",
+    "knip": "knip",
+    "prepare": "husky install",
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "tsc --noEmit --watch",
+    "analyze": "vite build --mode production --analyze",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.0.1",
@@ -55,13 +67,13 @@
     "tailwindcss": "^4.1.4",
     "tw-animate-css": "^1.2.5",
     "zod": "^3.24.2",
-    "zustand": "^5.0.3"
+    "zustand": "^5.0.3",
+    "@tanstack/react-query-devtools": "^5.74.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.24.0",
     "@faker-js/faker": "^9.7.0",
     "@tanstack/eslint-plugin-query": "^5.73.3",
-    "@tanstack/react-query-devtools": "^5.74.3",
     "@tanstack/react-router-devtools": "^1.120.10",
     "@tanstack/router-plugin": "^1.120.10",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
@@ -74,11 +86,28 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",
     "globals": "^16.0.0",
+    "husky": "^9.1.7",
     "knip": "^5.50.4",
+    "lint-staged": "^16.2.7",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
+    "rollup-plugin-visualizer": "^6.0.5",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.30.1",
     "vite": "^6.2.7"
-  }
+  },
+  "engines": {
+    "node": ">=20.19.0",
+    "npm": ">=10.0.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write --cache"
+    ]
+  },
+  "sideEffects": [
+    "*.css"
+  ]
 }
