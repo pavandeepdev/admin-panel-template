@@ -5,7 +5,14 @@ const API = {
     logout: 'auth/logout',
     profile: 'auth/profile',
   },
-};
+  projects: {
+    add: '',
+    update: '',
+    delete: '',
+    list: '',
+    detail: '',
+  },
+}
 
 Object.freeze(API);
 export default API;
