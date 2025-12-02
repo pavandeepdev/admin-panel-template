@@ -1,5 +1,5 @@
-import { createFileRoute, Link, Outlet } from '@tanstack/react-router'
-import { IconExternalLink, IconKeyOff } from '@tabler/icons-react'
+import { createFileRoute, Link } from '@tanstack/react-router'
+import { IconKeyOff } from '@tabler/icons-react'
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert'
 import { Separator } from '@/components/ui/separator'
 import { SidebarTrigger } from '@/components/ui/sidebar'
@@ -53,12 +53,14 @@ function MissingClerkPubKey() {
                 route backed by JWT auth.
               </li>
               <li>
-                The old Clerk demo routes under <code className={codeBlock}>/clerk</code>{' '}
-                are kept only as examples and no longer talk to Clerk.
+                The old Clerk demo routes under{' '}
+                <code className={codeBlock}>/clerk</code> are kept only as
+                examples and no longer talk to Clerk.
               </li>
               <li>
-                You can safely remove the <code className={codeBlock}>src/routes/clerk</code>{' '}
-                directory if you don&apos;t need these example pages.
+                You can safely remove the{' '}
+                <code className={codeBlock}>src/routes/clerk</code> directory if
+                you don&apos;t need these example pages.
               </li>
             </ol>
             <p>The final result should resemble the following:</p>
