@@ -10,7 +10,7 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-pnpm-lock.yaml
+# Note: pnpm-lock.yaml should be committed for dependency locking
 node_modules
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
@@ -79,10 +79,19 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env.development.local
-.env.test.local
-.env.production.local
+.env
 .env.local
+.env.development
+.env.development.local
+.env.test
+.env.test.local
+.env.production
+.env.production.local
+.env.staging
+.env.staging.local
+
+# Keep .env.example for documentation
+!.env.example
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -141,5 +150,9 @@ dist
 
 # SvelteKit build / generate output
 .svelte-kit
+
+# Vitest
+.vitest
+.vitest-cache
 
 # End of https://www.toptal.com/developers/gitignore/api/node
